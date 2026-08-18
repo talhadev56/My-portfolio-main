@@ -82,7 +82,7 @@
 
 Check out my portfolio to explore my **MERN stack and frontend projects**:
 
-🔗 [Visit My Portfolio](https://talhas-portfolio-kappa.vercel.app/)
+🔗 [Visit My Portfolio](https://talhas.vercel.app/)
 
 ---
 
