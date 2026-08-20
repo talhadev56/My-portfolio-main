@@ -1,82 +1,65 @@
-import React from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+
+const highlights = [
+  {
+    heading: "CS student",
+    para: "Islamia University of Bahawalpur",
+  },
+  {
+    heading: "MERN stack",
+    para: "MongoDB, Express, React, Node.js",
+  },
+  {
+    heading: "Product mindset",
+    para: "Responsive UI, clean APIs, real problems",
+  },
+];
 
 const About = () => {
-  let boxes = [
-    {
-      heading: "CS Student",
-      para: "Islamia University Of Bahawalpur",
-    },
-    {
-      heading: "Mern Stack",
-      para: "Developer",
-    },
-    {
-      heading: "Problem",
-      para: "Solver",
-    },
-  ];
-
   return (
-    <motion.div
-      className="container-fluid about text-light p-5"
-      id="about"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <section className="section" id="about">
       <div className="container">
-        {/* Title */}
-        <motion.div
-          className="text-center"
-          initial={{ y: -50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+        <Motion.div
+          className="text-center mx-auto mb-5"
+          style={{ maxWidth: 760 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <h1 className="pt-5 fs-1 fw-bold mb-5">About Me</h1>
-          <motion.p
-            className="aboutPara fs-5 mb-4 mx-auto"
-            style={{ maxWidth: "800px" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-          Hi! I'm Talha Akram,MERN Stack Developer currently studying Computer Science at Islamia University of Bahawalpur. I specialize in building responsive, user-friendly, and full-stack web applications using modern technologies like MongoDB, Express.js, ReactJS, and Node.js. I enjoy creating seamless frontend experiences while developing reliable backend functionality and RESTful APIs.
-          </motion.p>
-          <motion.p
-            className="aboutPara fs-5 mx-auto"
-            style={{ maxWidth: "800px" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-           I love solving real-world problems through code and continuously improving my skills to build scalable, efficient, and modern web applications.
-          </motion.p>
-        </motion.div>
+          <p className="section-kicker">About</p>
+          <h2 className="display-font fw-bold mb-3">A bit about me</h2>
+          <p className="text-secondary fs-5 mb-3">
+            I&apos;m Talha Akram, a Computer Science student and MERN stack
+            developer. I design and build responsive, user-friendly web apps
+            with React, and I connect them to Node.js, Express, and MongoDB
+            when the product needs a real backend.
+          </p>
+          <p className="text-secondary fs-5 mb-0">
+            I like shipping work that looks considered, loads fast, and solves
+            a concrete problem — then iterating until it feels simple to use.
+          </p>
+        </Motion.div>
 
-       
-        <div className="row mt-5 gy-4 text-center justify-content-center">
-          {boxes.map((elem, idx) => (
-            <motion.div
-              className="col-12 col-sm-6 col-md-4 p-3 px-2 md:px-0"
-              key={idx}
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: idx * 0.3, duration: 0.6 }}
+        <div className="row g-4 justify-content-center">
+          {highlights.map((item, idx) => (
+            <Motion.div
+              className="col-md-4"
+              key={item.heading}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1, duration: 0.5 }}
             >
-              <motion.div
-                className="box rounded-5 p-4 h-100 shadow-lg"
-                whileHover={{ scale: 1.05, rotate: 1 }}
-                transition={{ type: "spring", stiffness: 200 }}
-              >
-                <h3 className="text-danger mt-2">{elem.heading}</h3>
-                <p>{elem.para}</p>
-              </motion.div>
-            </motion.div>
+              <article className="stat-card text-center">
+                <h3 className="h5 text-danger mb-2">{item.heading}</h3>
+                <p className="text-secondary mb-0">{item.para}</p>
+              </article>
+            </Motion.div>
           ))}
         </div>
       </div>
-    </motion.div>
+    </section>
   );
 };
 
